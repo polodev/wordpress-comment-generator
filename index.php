@@ -28,3 +28,8 @@ foreach ($posts as $post) {
 	$post->comment_count = $post->comments->count();
 	$post->save();
 }
+
+
+?>
+
+<h1>Comment generated successfully</h1>
