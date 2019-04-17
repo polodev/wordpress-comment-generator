@@ -25,14 +25,29 @@ class CommentGenerator {
   public $comments = [];
   public $last_parent_id = null;
 
-  public function add_comment($comment, $post_id)
+
+  public function is_parent($comment)
   {
-    extract($comment);
+    return  isset( $comment['child_comments']  ) && $comment['child_comments'];
+  }
+  public function is_child($comment)
+  {
+    if ($this->is_parent($comment)) {
+      return false;
+    }
+    if ( ! isset($comment['child_comments']) ) {
+      return true;
+    }
+    return false;
+  }
+
+  public function add_comment($comment, $post_id, $has_parent = false)
+  {
     $comment_args = [
       'comment_post_ID'      => $post_id,
-      'comment_author'       => $author,
-      'comment_author_email' => $author_email,
-      'comment_content'      => $content,
+      'comment_author'       => $comment['author'],
+      'comment_author_email' => $comment['author_email'],
+      'comment_content'      => $comment['content'],
       'comment_parent'       => $this->comment_parent,
       'comment_date'         => $this->comment_date,
       'comment_date_gmt'     => $this->comment_date_gmt,
@@ -44,14 +59,25 @@ class CommentGenerator {
       $comment_args['comment_parent'] = $this->last_parent_id;
     }
     $new_comment = Comment::create($comment_args);
-    if ($is_parent) {
+    if ($this->is_parent($comment)) {
       $this->last_parent_id = $new_comment->comment_ID;
+      $this->generate_child_comment($comment, $post_id);
     }
-    echo '<pre>__ $new_comment __';
-    var_dump($this->last_parent_id);
-    echo '</pre>';
     return $this;
   }
+
+  public function generate_child_comment($comment, $post_id)
+  {
+    if (isset($comment['child_comments'])) {
+      foreach ($comment['child_comments'] as $child_comment) {
+        $this->add_comment($child_comment, $post_id, true );
+      }
+    }
+  }
+
+
+
+
   public function get_comments()
   {
   	return $this->comments;
