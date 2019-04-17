@@ -8,6 +8,7 @@ class Comment extends Model{
   protected $guarded = [];
   public $timestamps = false;
   protected $table = Settings::table_prefix . 'comments';
+  protected $primaryKey = 'comment_ID';
   public function post()
   {
   	return $this->belongsTo(Post::class, 'comment_post_ID');

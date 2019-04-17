@@ -2,8 +2,6 @@
 
 namespace rttheme\comment_replicator\Libraries;
 
-use rttheme\comment_replicator\Models\Comment;
-
 class CommentGenerator {
   public $comment_ID;
   public $comment_post_ID;
@@ -23,15 +21,15 @@ class CommentGenerator {
 
 
   public $comments = [];
-  public $last_parent_id = null;
 
-  public function add_comment($comment, $post_id)
+  public $last_parent_comment_id = null;
+
+  public function add_comment($author, $email, $content, $post_id)
   {
-    extract($comment);
-    $comment_args = [
+    $comment = [
       'comment_post_ID'      => $post_id,
       'comment_author'       => $author,
-      'comment_author_email' => $author_email,
+      'comment_author_email' => $email,
       'comment_content'      => $content,
       'comment_parent'       => $this->comment_parent,
       'comment_date'         => $this->comment_date,
@@ -40,16 +38,7 @@ class CommentGenerator {
       'comment_parent'       => $this->comment_parent,
       'user_id'              => $this->user_id,
     ];
-    if ($has_parent && $this->last_parent_id) {
-      $comment_args['comment_parent'] = $this->last_parent_id;
-    }
-    $new_comment = Comment::create($comment_args);
-    if ($is_parent) {
-      $this->last_parent_id = $new_comment->comment_ID;
-    }
-    echo '<pre>__ $new_comment __';
-    var_dump($this->last_parent_id);
-    echo '</pre>';
+    $this->comments[] = $comment;
     return $this;
   }
   public function get_comments()
