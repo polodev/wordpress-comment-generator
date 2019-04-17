@@ -1,8 +1,8 @@
 <?php 
 
-namespace rttheme\Libraries;
+namespace rttheme\comment_replicator\Libraries;
 
-class Comment {
+class CommentGenerator {
   public $comment_ID;
   public $comment_post_ID;
   public $comment_author;
@@ -25,9 +25,10 @@ class Comment {
   public function add_comment($author, $email, $content, $post_id)
   {
     $comment = [
-      'comment_post_ID'      => $this->comment_post_ID,
+      'comment_post_ID'      => $post_id,
       'comment_author'       => $author,
       'comment_author_email' => $email,
+      'comment_content'      => $content,
       'comment_parent'       => $this->comment_parent,
       'comment_date'         => $this->comment_date,
       'comment_date_gmt'     => $this->comment_date_gmt,
@@ -35,7 +36,7 @@ class Comment {
       'comment_parent'       => $this->comment_parent,
       'user_id'              => $this->user_id,
     ];
-    $this->comments = $comment;
+    $this->comments[] = $comment;
     return $this;
   }
   public function get_comments()
