@@ -32,4 +32,11 @@ $comments = [
 		'content' => 'Great post. Thanks for sharing these tips. I recently wrote a blog post on my website that was designed especially for home builders and construction professionals.',
 	],
 ];
+$comments = [
+	[
+		'author' => 'Adi Purdila',
+		'author_email' => 'ler49799@cndps.com',
+		'content' => 'Great post. Thanks for sharing these tips. I recently wrote a blog post on my website that was designed especially for home builders and construction professionals.',
+	],
+];
 

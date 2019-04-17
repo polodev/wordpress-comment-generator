@@ -4,17 +4,18 @@ namespace rttheme\comment_replicator;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
-
-$capsule->addConnection([
+$db_args = [
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => Settings::database,
-    'username'  => Settings::username,
-    'password'  => Settings::password,
+    'database'  => getenv('DATABASE'),
+    'username'  => getenv('DBUSER'),
+    'password'  => getenv('PASSWORD'),
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',
-]);
+];
+
+$capsule->addConnection($db_args);
 
 // Set the event dispatcher used by Eloquent models... (optional)
 use Illuminate\Events\Dispatcher;

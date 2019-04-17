@@ -7,7 +7,11 @@ use rttheme\comment_replicator\Settings;
 class Comment extends Model{
   protected $guarded = [];
   public $timestamps = false;
-  protected $table = Settings::table_prefix . 'comments';
+  protected $table ='comments';
+  public function __construct()
+  {
+  	$this->table = getenv('TABLE_PREFIX') . 'comments';
+  }
   protected $primaryKey = 'comment_ID';
   public function post()
   {

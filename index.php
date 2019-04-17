@@ -7,7 +7,6 @@ use rttheme\comment_replicator\Models\Post;
 
 require __dir__ . '/includes.php';
 
-
 $posts = Post::onlyPost()->get('ID');
 $comment_generator = new CommentGenerator();
 
