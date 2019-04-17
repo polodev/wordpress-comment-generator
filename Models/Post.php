@@ -5,10 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model{
   protected $guarded = [];
-  protected $table = 'wp_posts';
   public $timestamps = false;
   protected $primaryKey = 'ID';
 
+  public function getTable()
+  {
+    return getenv('TABLE_PREFIX') . 'posts';
+  }
 
   public function comments()
   {
