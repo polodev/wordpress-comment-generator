@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model{
   protected $guarded = [];
   protected $table = 'wp_posts';
+  public $timestamps = false;
+  protected $primaryKey = 'ID';
+
 
   public function comments()
   {
-  	return $this->hasMany(Commnet::class, 'comment_post_ID');
+  	return $this->hasMany(Comment::class, 'comment_post_ID', 'ID');
   }
 
   public function scopeOnlyPost($query, $value = '')

@@ -6,6 +6,7 @@ use rttheme\comment_replicator\Settings;
 
 class Comment extends Model{
   protected $guarded = [];
+  public $timestamps = false;
   protected $table = Settings::table_prefix . 'comments';
   public function post()
   {

@@ -7,16 +7,12 @@ use rttheme\comment_replicator\Models\Post;
 
 require __dir__ . '/includes.php';
 
+
 $posts = Post::onlyPost()->get('ID');
 $comment_generator = new CommentGenerator();
 
-var_dump($posts->toArray());
-
-die;
-
 
 foreach ($posts as $post) {
-	echo $post->ID . " <br> ";
 	foreach ($comments as $comment) {
 		extract($comment);
 		$comment_generator->add_comment($author, $author_email, $content, $post->ID );
@@ -24,6 +20,22 @@ foreach ($posts as $post) {
 }
 
 
-Comment::truncate();
-Comment::insert( $comment_generator->get_comments() );
+// generating comment 
+// Comment::truncate();
+// Comment::insert( $comment_generator->get_comments() );
+
+
+$posts = Post::onlyPost()->get();
+foreach ($posts as $post) {
+	$post->comment_count = $post->comments->count();
+	$post->save();
+}
+
+// $post = Post::find(3249);
+// $post->comment_count = 10;
+// $post->save();
+// echo json_encode($post->comment_count);
+
+// $comments = Comment::all();
+// var_dump($comments->first()->post->ID);
 
