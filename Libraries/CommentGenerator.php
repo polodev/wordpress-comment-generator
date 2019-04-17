@@ -63,6 +63,7 @@ class CommentGenerator {
       $this->last_parent_id = $new_comment->comment_ID;
       $this->generate_child_comment($comment, $post_id);
     }
+    echo "success";
     return $this;
   }
 
