@@ -13,9 +13,8 @@ $comment_generator = new CommentGenerator();
 
 Comment::truncate();
 foreach ($posts as $post) {
-	shuffle($comments);
 	foreach ($comments as $comment) {
-		$probality = [true, false, true, false, true, true];
+		$probality = [true, false];
 		$bool = $probality[array_rand($probality)];
 		if ($bool) {
 			$comment_generator->add_comment($comment, $post->ID );
