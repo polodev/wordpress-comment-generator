@@ -31,15 +31,15 @@ $comments = [
 		'author_email' => 'ler49799@cndps.com',
 		'content' => 'Great post. Thanks for sharing these tips. I recently wrote a blog post on my website that was designed especially for home builders and construction professionals.',
 	],
-	// [
-	// 	'author' => 'Jeff Star',
-	// 	'author_email' => 'svi78667@cndps.com',
-	// 	'content' => 'Lorem ipsum dolor sit amet, ei cetero meliore forensibus cum, prima menandri contentiones nam te, ea sed meis doming nominati. Ad est suavitate periculis. Mea mundi eirmod cu, rebum dolor has an. Meis consetetur ad has, nam id brute exerci albucius. Oblique epicurei ei mel, ceteros deleniti appellantur duo ei.',
-	// ],
-	// [
-	// 	'author' => 'Morten Hendriksen',
-	// 	'author_email' => 'ziy28650@cndps.com',
-	// 	'content' => 'Mei dicat equidem ea, ex ferri magna nostrud eos. Quas perfecto mea ad. An duo graece option splendide, duo cu putent fabellas. Debet ubique instructior nam at, ex ipsum aliquam propriae vim. Mei ei graeco eleifend mediocritatem.',
-	// ],
+	[
+		'author' => 'Jeff Star',
+		'author_email' => 'svi78667@cndps.com',
+		'content' => 'Lorem ipsum dolor sit amet, ei cetero meliore forensibus cum, prima menandri contentiones nam te, ea sed meis doming nominati. Ad est suavitate periculis. Mea mundi eirmod cu, rebum dolor has an. Meis consetetur ad has, nam id brute exerci albucius. Oblique epicurei ei mel, ceteros deleniti appellantur duo ei.',
+	],
+	[
+		'author' => 'Morten Hendriksen',
+		'author_email' => 'ziy28650@cndps.com',
+		'content' => 'Mei dicat equidem ea, ex ferri magna nostrud eos. Quas perfecto mea ad. An duo graece option splendide, duo cu putent fabellas. Debet ubique instructior nam at, ex ipsum aliquam propriae vim. Mei ei graeco eleifend mediocritatem.',
+	],
 ];
 
