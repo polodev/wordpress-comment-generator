@@ -13,7 +13,7 @@ $comments = [
 				'content' => 'Good Luck with your upcoming company',
 			],
 			[
-				'author' => 'Adi Purdila',
+				'author' => 'Taylor otwell',
 				'author_email' => 'ler49799@cndps.com',
 				'content' => 'Hope you will have biggest industrial llc in town',
 			],
@@ -27,7 +27,7 @@ $comments = [
 		'content' => 'Thanks for sharing a awesome article',
 	],
 	[
-		'author' => 'Adi Purdila',
+		'author' => 'Taylor otwell',
 		'author_email' => 'ler49799@cndps.com',
 		'content' => 'Great post. Thanks for sharing these tips. I recently wrote a blog post on my website that was designed especially for home builders and construction professionals.',
 	],
